@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro De Livros</title>
+    <style>
+        body {
+            width: 100%;
+            background-size: cover;
+            background-image: url("livro.jpg");}
+
+        h2 {text-align: center; 
+            text-decoration: underline; 
+            margin-top: 50px;
+            font-size: 50px; 
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background: linear-gradient(to right, yellow,red);
+            -webkit-background-clip: text;
+            color: transparent;}
+        h4 {
+            margin-top: 200px;
+            font-size: large;
+            background: linear-gradient(25deg,black, white, red);
+            background-size: 600% 600%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-animation 2s ease infinite, color-change 2s ease infinite;
+        }
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes color-change {
+            0% { color: #ff0000; }
+            25% { color: #00ff00; }
+            50% { color: #0000ff; }
+            75% { color: #ff00ff; }
+            100% { color: #ff0000; }
+        }
+        
+
+        #cad {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 40px;
+            background: linear-gradient(to right, red, yellow);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+
+        #t {text-align: center;
+            font-size: 15px;
+            margin-top: 80px;
+            background: white;
+            color: black;
+            margin-left: 400px;
+            margin-right: 400px;
+            padding: 10px;
+            border-radius: 5px;}
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content firs-content" >
+            <div class="first-column">
+                <h2 class="title">Seja Bem Vindo</h2>
+            </div>
+            <div class="second-column" id="s">
+                <div class="cad" id="cad">Cadastro de Livros</div>
+                <p class="description" id="t">Para cadastrar um livro basta digitar o nome do livro, autor, número de páginas e ano de publicação</p>
+                <form class="form">
+                    <input type="text" placeholder="Nome do Livro" id="title">
+                    <input type="text" placeholder="Autor" id="author">
+                    <input type="text" placeholder="Publicação" id="published">
+                    <input type="number" placeholder="Número de páginas" id="qt_pages">
+                    <input type="date" placeholder="Ano de publicação" id="year_published">
+                    <button id="btn">Cadastrar</button>
+                    <h4 class="description">"Um livro é um brinquedo feito com letras. Ler é brincar!"</h4>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
