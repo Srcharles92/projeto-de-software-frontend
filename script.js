@@ -1,49 +1,54 @@
-window.onload = () => {
-
-    // Captura os dados do formulário
-    const form = document.getElementById("form");
-
-    function cadastrarLivro(event) {
-
-        event.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('form');
+    const btn = document.getElementById('btn');
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault(); // Impede o envio padrão do formulário
 
         // Captura os dados do formulário
         const title = document.getElementById('title').value;
         const author = document.getElementById('author').value;
-        const published = document.getElementById('published').value;
-        const qtPages = document.getElementById('qt_pages').value;
-        const yearPublished = document.getElementById('year_published').value;
+        const publisher = document.getElementById('publisher').value;
+        const pages = document.getElementById('pages').value;
+        let year_published = document.getElementById('year_published').value;
 
-
+        
+        year_published = year_published.split("-")[0];
+        console.log(year_published);
 
         // Cria um objeto com os dados
         const bookData = {
             title: title,
             author: author,
-            published: published,
-            qtPages: qtPages,
-            yearPublished: yearPublished
+            publisher: publisher,
+            pages: pages,
+            year_published: year_published
         };
-        console.log("BookData:: ", bookData);
+        console.log(bookData);
 
-        // Envia os dados para o backend usando fetch
-        fetch('http://localhost:4000/books', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(bookData)
-        }).then(res => {
-            return res.json()
-        }).then((data) => {
-            console.log("RESPOSTA:: ", data);
-            alert('Livro cadastrado com sucesso!');
-        }).catch(error => {
-            console.error('Erro ao cadastrar livro:', error);
-            alert('Erro ao cadastrar livro. Tente novamente.');
-        })
+        try {
+            // Envia os dados para o backend usando fetch
+            const response = await fetch('http://localhost:4000/api/livros', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(bookData)
+            });
 
+            console.log("response:: ", response)
 
-    }
-    form.addEventListener("submit", cadastrarLivro);
-}
+            if (response.ok) {
+                const result = await response.json();
+                console.log('Livro cadastrado com sucesso:', result);
+                alert('Livro cadastrado com sucesso!');
+                form.reset(); // Limpa o formulário após o envio
+            } else {
+                console.error('Erro ao cadastrar livro:', response.statusText);
+                alert('Erro ao cadastrar livro. Tente novamente.');
+            }
+        } catch (error) {
+            console.error('Erro ao enviar dados:', error);
+            alert('Erro ao enviar dados. Tente novamente.');
+        }
+    });
+});
