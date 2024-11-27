@@ -1,0 +1,67 @@
+body{
+    height: 95vh;
+    background-image: url(../livro.jpg);
+    background-size: cover;
+        /* border: 5px solid black; */
+
+}
+
+h1{
+    display: flex;
+    place-content: center;
+    font-size: 50px;
+    padding-top: 20px;
+    color: orangered;
+    text-decoration: underline;
+
+}
+
+#text{
+    font-size: large;
+    justify-content: center;
+    padding-top: 100px;
+    color: bisque;
+}
+
+a{
+    color: antiquewhite;
+
+}
+
+#total a:hover{
+    color: orangered;
+
+}
+
+#total nav{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    /* border: 5px solid yellow; */
+    
+}
+main{
+    display: flex;
+    height: 150px;
+    place-content: center;
+    /* border: 5px solid red; */
+
+}
+
+.form{
+    width: 200px;
+    height: 100px;
+}
+
+#text{
+    display: flex;
+}
+
+.marquee-text{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    /* border: 5px soslid black; */
+
+}
+

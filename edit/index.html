@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edite seus livros</title>
+
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+ 
+    <div id="total">
+        <nav>
+            <a href="../index.html" target="_blank" class="link">Cadastro de Livros</a>
+            <a href="../projeto-delete/index-del.html" target="_blank" class="link">Exclusão de Livros</a>
+            <a href="../search/index.html" target="_blank" class="link">Pesquisa de livros</a>
+        </nav>
+        
+        <div><h1>Edição de livros</h1></div>
+
+        <div id="text">
+            <h3>Aqui você poderá editar livros, como por exemplo editar a publicação dele ou até mesmo o número de páginas</h3>
+        </div>
+
+        <main>
+            <form class="form" id="form">
+                <input type="text" placeholder="Nome do Livro" id="title"> <br>
+                <input type="text" placeholder="Autor" id="author"><br>
+                <input type="text" placeholder="Publicação" id="publisher"><br>
+                <input type="number" placeholder="Número de páginas" id="pages"><br>
+                <input type="date" placeholder="Ano de publicação" id="year_published"><br>
+                <button id="btn">editar</button>
+            </form>
+        </main>
+
+
+        <footer>
+            <span class="marquee-text">
+                A leitura reaviva a memória e nos coloca a par do desconhecido.
+            </span>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
